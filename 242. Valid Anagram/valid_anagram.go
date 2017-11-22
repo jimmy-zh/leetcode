@@ -2,7 +2,7 @@ package valid_anagram
 
 //Note:
 //You may assume the string contains only lowercase alphabets.
-func IsAnagram(s string, t string) bool {
+func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
@@ -21,7 +21,7 @@ func IsAnagram(s string, t string) bool {
 
 //Follow up:
 //What if the inputs contain unicode characters? How would you adapt your solution to such case?
-func IsAnagramUnicode(s string, t string) bool {
+func isAnagramUnicode(s string, t string) bool {
 	m := make(map[rune]int)
 	for _, v := range s {
 		m[v]++
