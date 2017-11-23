@@ -6,7 +6,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-//Iteration
+//Iteration＋ move nodes
 func insertionSortListIteration(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
