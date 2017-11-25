@@ -1,7 +1,17 @@
 package valid_anagram
 
-//Note:
-//You may assume the string contains only lowercase alphabets.
+/*
+Given two strings s and t, write a function to determine if t is an anagram of s.
+For example,
+s = "anagram", t = "nagaram", return true.
+s = "rat", t = "car", return false.
+
+Note:
+You may assume the string contains only lowercase alphabets.
+Follow up:
+What if the inputs contain unicode characters? How would you adapt your solution to such case?
+*/
+
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
@@ -19,8 +29,6 @@ func isAnagram(s string, t string) bool {
 	return true
 }
 
-//Follow up:
-//What if the inputs contain unicode characters? How would you adapt your solution to such case?
 func isAnagramUnicode(s string, t string) bool {
 	m := make(map[rune]int)
 	for _, v := range s {

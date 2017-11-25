@@ -1,5 +1,9 @@
 package insertion_sort_list
 
+/*
+Sort a linked list using insertion sort.
+*/
+
 //Definition for singly-linked list.
 type ListNode struct {
 	Val  int

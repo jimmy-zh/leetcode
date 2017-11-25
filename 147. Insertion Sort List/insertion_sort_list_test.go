@@ -10,26 +10,13 @@ func TestInsertionSortListIteration(t *testing.T) {
 	thirdNode := &ListNode{2, fourthNode}
 	secondNode := &ListNode{4, thirdNode}
 	firstNode := &ListNode{1000, secondNode}
-
+	resultVal := []int{1, 2, 4, 5, 1000}
 	head := insertionSortListIteration(firstNode)
-	if head.Val != 1 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 2 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 4 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 5 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 1000 {
-		t.Error("Not Sorted")
+	for i := 0; i < 5; i++ {
+		if head.Val != resultVal[i] {
+			t.Error("Not Sorted")
+		}
+		head = head.Next
 	}
 }
 
@@ -39,25 +26,12 @@ func TestInsertionSortListRecursion(t *testing.T) {
 	thirdNode := &ListNode{2, fourthNode}
 	secondNode := &ListNode{4, thirdNode}
 	firstNode := &ListNode{1000, secondNode}
-
+	resultVal := []int{1, 2, 4, 5, 1000}
 	head := insertionSortListRecursion(firstNode)
-	if head.Val != 1 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 2 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 4 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 5 {
-		t.Error("Not Sorted")
-	}
-	head = head.Next
-	if head.Val != 1000 {
-		t.Error("Not Sorted")
+	for i := 0; i < 5; i++ {
+		if head.Val != resultVal[i] {
+			t.Error("Not Sorted")
+		}
+		head = head.Next
 	}
 }
