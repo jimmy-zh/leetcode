@@ -9,10 +9,7 @@ Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
 */
 
-func twoSum(numbers []int, target int) []int {
-	if len(numbers) < 2 {
-		return []int{}
-	}
+func twoSumBinarySearch(numbers []int, target int) []int {
 	for i := range numbers {
 		complement := target - numbers[i]
 		l, r := i+1, len(numbers)-1
@@ -26,6 +23,22 @@ func twoSum(numbers []int, target int) []int {
 			case complement < numbers[m]:
 				r = m - 1
 			}
+		}
+	}
+	return []int{}
+}
+
+func twoSumTwoPointer(numbers []int, target int) []int {
+	i, j := 0, len(numbers)-1
+	for i < j {
+		sum := numbers[i] + numbers[j]
+		if sum == target {
+			return []int{i + 1, j + 1}
+		}
+		if sum < target {
+			i++
+		} else {
+			j--
 		}
 	}
 	return []int{}
