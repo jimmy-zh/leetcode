@@ -14,6 +14,7 @@ func TestHasCycle(t *testing.T) {
 	if hasCycle(firstNode) {
 		t.Error("has no cycle")
 	}
+	//head is on the cycle
 	fifthNode.Next = firstNode
 	if !hasCycle(firstNode) {
 		t.Error("has cycle")

@@ -1,7 +1,6 @@
 package linked_list_cycle_II
 
-/*
-Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+/* Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 
 Note: Do not modify the linked list.
 
@@ -28,11 +27,9 @@ func detectCycle(head *ListNode) *ListNode {
 		return nil
 	}
 	one = head
-	for {
+	for one != two {
 		one = one.Next
 		two = two.Next
-		if one == two {
-			return one
-		}
 	}
+	return one
 }
