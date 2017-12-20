@@ -18,13 +18,14 @@ Output: The root of a Greater Tree like this:
 */
 
 func convertBST(root *utils.TreeNode) *utils.TreeNode {
-	if root == nil {
-		return nil
-	}
-	root.Right = convertBST(root.Right)
-	root.Left = convertBST(root.Left)
-	if root.Right != nil {
-		root.Val += root.Right.Val
-	}
+	convertBSTRecursion(root, 0)
 	return root
+}
+
+func convertBSTRecursion(node *utils.TreeNode, add int) int {
+	if node == nil {
+		return add
+	}
+	node.Val += convertBSTRecursion(node.Right, add)
+	return convertBSTRecursion(node.Left, node.Val)
 }
