@@ -1,6 +1,7 @@
 package symmetric_tree
 
 import (
+	"github.com/midnight-vivian/go-data-structures/src/data-structures/queue"
 	"github.com/midnight-vivian/go-data-structures/src/data-structures/stack"
 	"github.com/midnight-vivian/go-data-structures/src/utils"
 )
@@ -45,7 +46,7 @@ func isSymmetricRecursionInner(n1, n2 *utils.TreeNode) bool {
 	return false
 }
 
-func isSymmetricIteration(root *utils.TreeNode) bool {
+func isSymmetricIterationDFS(root *utils.TreeNode) bool {
 	if root == nil {
 		return true
 	}
@@ -64,6 +65,29 @@ func isSymmetricIteration(root *utils.TreeNode) bool {
 		s.Push(n2.Right)
 		s.Push(n1.Right)
 		s.Push(n2.Left)
+	}
+	return true
+}
+
+func isSymmetricIterationBFS(root *utils.TreeNode) bool {
+	if root == nil {
+		return true
+	}
+	q := queue.NewQueueSlice()
+	q.Enqueue(root.Left)
+	q.Enqueue(root.Right)
+	for !q.Empty() {
+		n1, n2 := q.Dequeue().(*utils.TreeNode), q.Dequeue().(*utils.TreeNode)
+		if n1 == nil && n2 == nil {
+			continue
+		}
+		if n1 == nil || n2 == nil || n1.Val != n2.Val {
+			return false
+		}
+		q.Enqueue(n1.Left)
+		q.Enqueue(n2.Right)
+		q.Enqueue(n1.Right)
+		q.Enqueue(n2.Left)
 	}
 	return true
 }
