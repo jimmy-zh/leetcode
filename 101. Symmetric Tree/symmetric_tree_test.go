@@ -7,82 +7,34 @@ import (
 )
 
 func TestIsSymmetric(t *testing.T) {
-	vals := []interface{}{}
-	tree := utils.BinaryTreeConstructor(vals)
-	if !isSymmetricRecursion(tree) {
-		t.Error("isSymmetricRecursion error")
-	}
-	vals = []interface{}{1}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricRecursion(tree) {
-		t.Error("isSymmetricRecursion error")
-	}
-	vals = []interface{}{1, 2, 2, 4, 3, 3, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricRecursion(tree) {
-		t.Error("isSymmetricRecursion error")
-	}
-	vals = []interface{}{1, 2, 3, 4, 3, 3, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if isSymmetricRecursion(tree) {
-		t.Error("isSymmetricRecursion error")
-	}
-	vals = []interface{}{1, 2, 2, 4, 3, nil, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	tree = utils.BinaryTreeConstructor(vals)
-	if isSymmetricRecursion(tree) {
-		t.Error("isSymmetricRecursion error")
+	valsT := [][]interface{}{
+		[]interface{}{},
+		[]interface{}{1},
+		[]interface{}{1, 2, 2, 4, 3, 3, 4},
+		[]interface{}{1, 2, 3, 4, 3, 3, 4},
+		[]interface{}{1, 2, 2, 4, 3, nil, 4},
 	}
 
-	vals = []interface{}{}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricIterationDFS(tree) {
-		t.Error("isSymmetricIteration error")
-	}
-	vals = []interface{}{1}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricIterationDFS(tree) {
-		t.Error("isSymmetricIteration error")
-	}
-	vals = []interface{}{1, 2, 2, 4, 3, 3, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricIterationDFS(tree) {
-		t.Error("isSymmetricIteration error")
-	}
-	vals = []interface{}{1, 2, 3, 4, 3, 3, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if isSymmetricIterationDFS(tree) {
-		t.Error("isSymmetricIteration error")
-	}
-	vals = []interface{}{1, 2, 2, 4, 3, nil, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if isSymmetricIterationDFS(tree) {
-		t.Error("isSymmetricIteration error")
+	results := []bool{
+		true,
+		true,
+		true,
+		false,
+		false,
 	}
 
-	vals = []interface{}{}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricIterationBFS(tree) {
-		t.Error("isSymmetricIteration error")
+	funcs := []func(*utils.TreeNode) bool{
+		isSymmetricRecursion,
+		isSymmetricIterationDFS,
+		isSymmetricIterationBFS,
 	}
-	vals = []interface{}{1}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricIterationBFS(tree) {
-		t.Error("isSymmetricIteration error")
-	}
-	vals = []interface{}{1, 2, 2, 4, 3, 3, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if !isSymmetricIterationBFS(tree) {
-		t.Error("isSymmetricIteration error")
-	}
-	vals = []interface{}{1, 2, 3, 4, 3, 3, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if isSymmetricIterationBFS(tree) {
-		t.Error("isSymmetricIteration error")
-	}
-	vals = []interface{}{1, 2, 2, 4, 3, nil, 4}
-	tree = utils.BinaryTreeConstructor(vals)
-	if isSymmetricIterationBFS(tree) {
-		t.Error("isSymmetricIteration error")
+
+	for i := range funcs {
+		for k, v := range valsT {
+			tree := utils.BinaryTreeConstructor(v)
+			if results[k] != funcs[i](tree) {
+				t.Error("isSymmetric error")
+			}
+		}
 	}
 }
