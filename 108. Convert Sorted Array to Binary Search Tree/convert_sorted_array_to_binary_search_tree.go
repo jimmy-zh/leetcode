@@ -1,6 +1,6 @@
 package convert_sorted_array_to_binary_search_tree
 
-import "github.com/midnight-vivian/go-data-structures/src/utils"
+import "github.com/midnight-vivian/go-data-structures/utils"
 
 /*
 Given an array where elements are sorted in ascending order, convert it to a height balanced BST.

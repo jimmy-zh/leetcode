@@ -1,7 +1,7 @@
 package sum_of_left_leaves
 
 import (
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 /*

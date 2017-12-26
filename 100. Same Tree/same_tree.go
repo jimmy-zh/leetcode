@@ -1,6 +1,6 @@
 package same_tree
 
-import "github.com/midnight-vivian/go-data-structures/src/utils"
+import "github.com/midnight-vivian/go-data-structures/utils"
 
 /*
 Given two binary trees, write a function to check if they are the same or not.

@@ -1,7 +1,7 @@
 package invert_binary_tree
 
 import (
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 /*

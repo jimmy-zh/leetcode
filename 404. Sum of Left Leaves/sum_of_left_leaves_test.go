@@ -3,7 +3,7 @@ package sum_of_left_leaves
 import (
 	"testing"
 
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 func TestSumOfLeftLeaves(t *testing.T) {

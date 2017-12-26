@@ -3,7 +3,7 @@ package maximum_depth_of_binary_tree
 import (
 	"testing"
 
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 func TestMaxDepth(t *testing.T) {

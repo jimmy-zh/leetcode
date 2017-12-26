@@ -3,7 +3,7 @@ package symmetric_tree
 import (
 	"testing"
 
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 func TestIsSymmetric(t *testing.T) {

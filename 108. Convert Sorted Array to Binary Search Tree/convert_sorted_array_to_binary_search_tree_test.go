@@ -3,7 +3,7 @@ package convert_sorted_array_to_binary_search_tree
 import (
 	"testing"
 
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 func TestSortedArrayToBST(t *testing.T) {

@@ -3,7 +3,7 @@ package binary_tree_paths
 import (
 	"strconv"
 
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 /*

@@ -3,7 +3,7 @@ package convert_BST_to_greater_tree
 import (
 	"testing"
 
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 func TestConvertBST(t *testing.T) {

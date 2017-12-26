@@ -1,6 +1,6 @@
 package convert_BST_to_greater_tree
 
-import "github.com/midnight-vivian/go-data-structures/src/utils"
+import "github.com/midnight-vivian/go-data-structures/utils"
 
 /*
 Given a Binary Search Tree (BST), convert it to a Greater Tree such that every key of the original BST is changed to the original key plus sum of all keys greater than the original key in BST.

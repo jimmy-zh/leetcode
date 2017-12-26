@@ -1,7 +1,7 @@
 package delete_node_in_a_BST
 
 import (
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 /*

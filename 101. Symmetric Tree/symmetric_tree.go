@@ -1,9 +1,9 @@
 package symmetric_tree
 
 import (
-	"github.com/midnight-vivian/go-data-structures/src/data-structures/queue"
-	"github.com/midnight-vivian/go-data-structures/src/data-structures/stack"
-	"github.com/midnight-vivian/go-data-structures/src/utils"
+	"github.com/midnight-vivian/go-data-structures/data-structures/queue"
+	"github.com/midnight-vivian/go-data-structures/data-structures/stack"
+	"github.com/midnight-vivian/go-data-structures/utils"
 )
 
 /*
