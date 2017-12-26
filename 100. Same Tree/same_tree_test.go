@@ -7,32 +7,47 @@ import (
 )
 
 func TestIsSameTree(t *testing.T) {
-	vals1 := []interface{}{nil}
-	t1 := utils.BinaryTreeConstructor(vals1)
-	vals2 := []interface{}{nil}
-	t2 := utils.BinaryTreeConstructor(vals2)
-	if !isSameTree(t1, t2) {
-		t.Error("isSameTsree error")
+	valsT := [][][]interface{}{
+		[][]interface{}{
+			[]interface{}{nil},
+			[]interface{}{nil},
+		},
+		[][]interface{}{
+			[]interface{}{1, 2, 3, nil, 5, 4, nil},
+			[]interface{}{1, 2, 3, nil, 5, 4, nil},
+		},
+		[][]interface{}{
+			[]interface{}{1, 2, 3, nil, 5, 4, nil},
+			[]interface{}{1, 2, 3, nil, 5, 4, 7},
+		},
+		[][]interface{}{
+			[]interface{}{1, 2, 3, nil, 5, 4, nil},
+			[]interface{}{1, 2, 3, nil, 5, nil, nil},
+		},
 	}
 
-	vals1 = []interface{}{1, 2, 3, nil, 5, 4, nil}
-	t1 = utils.BinaryTreeConstructor(vals1)
-	vals2 = []interface{}{1, 2, 3, nil, 5, 4, nil}
-	t2 = utils.BinaryTreeConstructor(vals2)
-	if !isSameTree(t1, t2) {
-		t.Error("isSameTsree error")
+	results := []bool{
+		true,
+		true,
+		false,
+		false,
 	}
 
-	vals2 = []interface{}{1, 2, 3, nil, 5, 4, 7}
-	t2 = utils.BinaryTreeConstructor(vals2)
-	if isSameTree(t1, t2) {
-		t.Error("isSameTree error")
+	funcs := []func(*utils.TreeNode, *utils.TreeNode) bool{
+		isSameTreeRecursion,
+		isSameTreeIterationDFS,
+		isSameTreeIterationBFS,
 	}
 
-	vals2 = []interface{}{1, 2, 3, nil, 5, nil, nil}
-	t2 = utils.BinaryTreeConstructor(vals2)
-	if isSameTree(t1, t2) {
-		t.Error("isSameTree error")
+	for i := range funcs {
+		for k, v := range valsT {
+			vals1 := v[0]
+			t1 := utils.BinaryTreeConstructor(vals1)
+			vals2 := v[1]
+			t2 := utils.BinaryTreeConstructor(vals2)
+			if results[k] != funcs[i](t1, t2) {
+				t.Error("isSameTree error")
+			}
+		}
 	}
-
 }
