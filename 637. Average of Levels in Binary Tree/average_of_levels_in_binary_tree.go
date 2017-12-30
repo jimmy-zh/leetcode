@@ -1,6 +1,8 @@
 package average_of_levels_in_binary_tree
 
 import (
+	"container/list"
+
 	"github.com/midnight-vivian/go-data-structures/data-structures/queue"
 	"github.com/midnight-vivian/go-data-structures/utils"
 )
@@ -38,6 +40,32 @@ func averageOfLevels(root *utils.TreeNode) []float64 {
 			}
 			if n.Right != nil {
 				q.Enqueue(n.Right)
+			}
+		}
+		res = append(res, float64(sum)/float64(count))
+	}
+	return res
+}
+
+func averageOfLevelsStd(root *utils.TreeNode) []float64 {
+	if root == nil {
+		return nil
+	}
+	res := make([]float64, 0)
+	q := list.New()
+	q.PushFront(root)
+	for q.Len() != 0 {
+		count, sum := q.Len(), 0
+		for i := 0; i < count; i++ {
+			e := q.Back()
+			n := e.Value.(*utils.TreeNode)
+			q.Remove(e)
+			sum += n.Val
+			if n.Left != nil {
+				q.PushFront(n.Left)
+			}
+			if n.Right != nil {
+				q.PushFront(n.Right)
 			}
 		}
 		res = append(res, float64(sum)/float64(count))
