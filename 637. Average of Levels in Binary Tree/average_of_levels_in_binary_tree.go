@@ -23,7 +23,7 @@ Note:
 The range of node's value is in the range of 32-bit signed integer.
 */
 
-func averageOfLevels(root *utils.TreeNode) []float64 {
+func averageOfLevelsMyLib(root *utils.TreeNode) []float64 {
 	if root == nil {
 		return nil
 	}
@@ -47,7 +47,7 @@ func averageOfLevels(root *utils.TreeNode) []float64 {
 	return res
 }
 
-func averageOfLevelsStd(root *utils.TreeNode) []float64 {
+func averageOfLevelsStdLib(root *utils.TreeNode) []float64 {
 	if root == nil {
 		return nil
 	}
@@ -66,6 +66,30 @@ func averageOfLevelsStd(root *utils.TreeNode) []float64 {
 			}
 			if n.Right != nil {
 				q.PushFront(n.Right)
+			}
+		}
+		res = append(res, float64(sum)/float64(count))
+	}
+	return res
+}
+
+func averageOfLevelsNoLib(root *utils.TreeNode) []float64 {
+	if root == nil {
+		return nil
+	}
+	res := make([]float64, 0)
+	q := []*utils.TreeNode{root}
+	for len(q) != 0 {
+		count, sum := len(q), 0
+		for i := 0; i < count; i++ {
+			n := q[0]
+			sum += n.Val
+			q = q[1:]
+			if n.Left != nil {
+				q = append(q, n.Left)
+			}
+			if n.Right != nil {
+				q = append(q, n.Right)
 			}
 		}
 		res = append(res, float64(sum)/float64(count))
