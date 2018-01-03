@@ -40,10 +40,7 @@ func isSymmetricRecursionInner(n1, n2 *utils.TreeNode) bool {
 	if n1 == nil || n2 == nil || n1.Val != n2.Val {
 		return false
 	}
-	if isSymmetricRecursionInner(n1.Left, n2.Right) && isSymmetricRecursionInner(n1.Right, n2.Left) {
-		return true
-	}
-	return false
+	return isSymmetricRecursionInner(n1.Left, n2.Right) && isSymmetricRecursionInner(n1.Right, n2.Left)
 }
 
 func isSymmetricIterationDFS(root *utils.TreeNode) bool {

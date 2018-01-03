@@ -42,16 +42,10 @@ func isSameTreeRecursion(p *utils.TreeNode, q *utils.TreeNode) bool {
 	if p == nil && q == nil {
 		return true
 	}
-	if (p == nil && q != nil) || (p != nil && q == nil) {
+	if p == nil || q == nil || p.Val != q.Val {
 		return false
 	}
-	if p.Val != q.Val {
-		return false
-	}
-	if !isSameTreeRecursion(p.Left, q.Left) || !isSameTreeRecursion(p.Right, q.Right) {
-		return false
-	}
-	return true
+	return isSameTreeRecursion(p.Left, q.Left) && isSameTreeRecursion(p.Right, q.Right)
 }
 
 func isSameTreeIterationDFS(p *utils.TreeNode, q *utils.TreeNode) bool {
