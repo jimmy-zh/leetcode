@@ -15,24 +15,23 @@ type ListNode struct {
 }
 
 func mergeTwoListsTwoPointer(l1 *ListNode, l2 *ListNode) *ListNode {
-	preHead := &ListNode{Val: 0, Next: l1}
-	pre1, cur1, cur2 := preHead, l1, l2
+	preHead := &ListNode{Val: 0, Next: nil}
+	pre, cur1, cur2 := preHead, l1, l2
 	for cur1 != nil && cur2 != nil {
-		if cur2.Val < cur1.Val {
-			pre1.Next = cur2
-			cur2next := cur2.Next
-			cur2.Next = cur1
-			pre1 = cur2
-			cur2 = cur2next
+		if cur1.Val < cur2.Val {
+			pre.Next, pre, cur1 = cur1, cur1, cur1.Next
 		} else {
-			pre1, cur1 = cur1, cur1.Next
+			pre.Next, pre, cur2 = cur2, cur2, cur2.Next
 		}
 	}
 	if cur1 == nil {
-		pre1.Next = cur2
+		pre.Next = cur2
+	} else {
+		pre.Next = cur1
 	}
 	return preHead.Next
 }
+
 func mergeTwoListsRecursion(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil {
 		return l2
