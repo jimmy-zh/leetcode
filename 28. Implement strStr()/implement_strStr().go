@@ -16,22 +16,23 @@ Output: -1
 */
 
 func strStr(haystack string, needle string) int {
-	if len(needle) == 0 {
+	if needle == "" {
 		return 0
 	}
-	i, begin := 0, -1
-	for j := 0; j < len(haystack); j++ {
-		if haystack[j] == needle[i] {
-			if begin == -1 {
-				begin = j
+	i, j, imatch := 0, 0, -1
+	for i < len(haystack) {
+		if haystack[i] == needle[j] {
+			if j == 0 {
+				imatch = i
 			}
+			i, j = i+1, j+1
+			if j == len(needle) {
+				return imatch
+			}
+		} else if imatch != -1 {
+			i, imatch, j = imatch+1, -1, 0
+		} else {
 			i++
-		}
-		if i == len(needle) {
-			if j-begin == len(needle)-1 {
-				return begin
-			}
-			j, i, begin = begin, 0, -1
 		}
 	}
 	return -1
