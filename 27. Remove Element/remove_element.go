@@ -34,12 +34,12 @@ func removeElement(nums []int, val int) int {
 }
 
 func removeElementEasy(nums []int, val int) int {
-	i := 0
-	for j := range nums {
-		if nums[j] != val {
-			nums[i] = nums[j]
-			i++
+	j := -1
+	for i := range nums {
+		if nums[i] != val {
+			j++
+			nums[j] = nums[i]
 		}
 	}
-	return i
+	return j + 1
 }
