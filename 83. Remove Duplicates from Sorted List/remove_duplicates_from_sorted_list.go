@@ -14,36 +14,17 @@ type ListNode struct {
 	Next *ListNode
 }
 
-//modify duplicate node's value
 func deleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
-		return head
+		return nil
 	}
-	cur, cursor := head, head.Next
-	for cursor != nil {
-		if cur.Val != cursor.Val {
-			cur.Next.Val = cursor.Val
-			cur = cur.Next
+	last, cur := head, head.Next
+	for cur != nil {
+		if cur.Val != last.Val {
+			last.Next, last = cur, cur
 		}
-		cursor = cursor.Next
+		cur = cur.Next
 	}
-	cur.Next = nil
-	return head
-}
-
-//drop duplicate node directly
-func deleteDuplicatesPro(head *ListNode) *ListNode {
-	if head == nil {
-		return head
-	}
-	cur, cursor := head, head.Next
-	for cursor != nil {
-		if cur.Val != cursor.Val {
-			cur.Next = cursor
-			cur = cursor
-		}
-		cursor = cursor.Next
-	}
-	cur.Next = nil
+	last.Next = nil
 	return head
 }

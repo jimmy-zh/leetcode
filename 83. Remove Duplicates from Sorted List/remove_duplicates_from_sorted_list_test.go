@@ -15,7 +15,7 @@ func TestDeleteDuplicates(t *testing.T) {
 		3,
 		4,
 	}
-	deleteDuplicatesPro(firstNode)
+	deleteDuplicates(firstNode)
 	node := firstNode
 	for i := range result {
 		if result[i] != node.Val {
